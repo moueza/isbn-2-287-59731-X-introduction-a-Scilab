@@ -1,3 +1,4 @@
+//cf p96
 clf
 // 1) With a function in Scilab language (macro) NOTATION POINTEE
 function z=F(x, y)
