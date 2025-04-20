@@ -8,6 +8,6 @@ function mes_menus()
     Commandes_0=["flag=""Couleurs"""]
 endfunction
 
-//then mes_menus in CLI
+//then mes_menus ++++  in CLI
 
 //execstr(Commandes_0(1))
