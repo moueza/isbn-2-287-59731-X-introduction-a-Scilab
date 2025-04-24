@@ -30,7 +30,9 @@ if (getscilabmode() == "STD") then
 
     addmenu('Min');
     Min = ['disp(''hello Franck'')'   'disp(''hello Peter'')'];
-
+ 
+ 
+ //TODO remove all menu + buttons Unset delmenu
 
 
 else
