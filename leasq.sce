@@ -1,5 +1,7 @@
-function y=yth(t, x)
-   y  = x(1)*exp(-x(2)*t)
+// we want f= C(1)*x+C(2)*y+C(3)
+
+function ff=f(x,y, C)
+   ff  = C(1).*x+C(2).*y+C(3)
 endfunction
 
 // we have the m measures (ti, yi):
@@ -10,7 +12,7 @@ xm = [0,1,0,1]';
 //ym = [0.79, 0.59, 0.47, 0.36, 0.29, 0.23, 0.17, 0.15, 0.12, 0.08]';
 ym = [0,1,1,0]';
 
-zm = [0,1,.5,.5]';
+fm = [0,1,.5,.5]';
 
 // measure weights (here all equal to 1...)
 //wm = ones(m,1);
@@ -21,18 +23,18 @@ zm = [0,1,.5,.5]';
 //  minimize  f(x) = sum_i  wm(i)^2 ( yth(tm(i),x) - ym(i) )^2
 // z(x,y)= a*x+b*y
 // initial parameters guess
-x0 = [1.5 ; 0.8];//= a0 b0
+C = [1.5 ; 0.8;2];//= a0 b0
 
 // in the first examples, we define the function fun and dfun
 // in scilab language
-function e=myfun(x,y, xm, ym, zm)
+function e=errorfun(x,y, xm, ym, fm)
    // e = wm.*( yth(tm, x) - ym )
    // e = a*x+b*y
-    e = x0(1)*x+x0(2)*y
+   e =  wm.*( yth(tm, x) - ym )       
 endfunction
 
  
 // now we could call leastsq:
 
 // 1- the simplest call
-[f,xopt, gopt] = leastsq(list(myfun,tm,ym,wm),x0)
+//[f,xopt, gopt] = leastsq(list(myfun,tm,ym,wm),x0)
