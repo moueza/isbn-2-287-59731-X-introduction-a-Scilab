@@ -1,11 +1,13 @@
-// we want f= C(1)*x+C(2)*y+C(3)
+clear //vars
+clc//console
+// we want f= Coeff(1)*x+Coeff(2)*y+Coe3)
 
-function ff=f(x,y, C)
-   ff  = C(1).*x+C(2).*y+C(3)
+function ff=fun(x,y, Coeff) //fun to no conflict with end f result
+   ff  = Coeff(1).*x+Coeff(2).*y+Coeff(3)
 endfunction
 
 // we have the m measures (ti, yi):
-m = 10;
+//m = 10;
 
 //tm = [0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5]';
 xm = [0,1,0,1]';
@@ -30,9 +32,10 @@ C = [1.5 ; 0.8;2];//= a0 b0
 function e=errorfun(x,y, xm, ym, fm)
    // e = wm.*( yth(tm, x) - ym )
    // e = a*x+b*y
-   e =  wm.*( yth(tm, x) - ym )       
+   e =  wm.*( fun(xm,ym, Coeff) - ym )       
 endfunction
-
+//////
+disp('errorfun',errorfun(xm,ym, xm, ym, fm))
  
 // now we could call leastsq:
 

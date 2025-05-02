@@ -1,6 +1,14 @@
+clear
+clc
 function y=yth(t, x)
    y  = x(1)*exp(-x(2)*t)
 endfunction
+// initial parameters guess
+x0 = [1.5 ; 0.8];
+//////////
+disp('yth',yth(0, x0))
+
+
 
 // we have the m measures (ti, yi):
 m = 10;
@@ -15,13 +23,15 @@ wm = ones(m,1);
 //  minimize  f(x) = sum_i  wm(i)^2 ( yth(tm(i),x) - ym(i) )^2
 
 // initial parameters guess
-x0 = [1.5 ; 0.8];
+x0 = x0; //just for didactic,respectful order
 
 // in the first examples, we define the function fun and dfun
 // in scilab language
 function e=myfun(x, tm, ym, wm)
-   e = wm.*( yth(tm, x) - ym ) //OU FAIT ON LA SOMME ?
+   e = wm.*( yth(tm, x) - ym )// Vectorized //WHERE IS SUM ? Embedded in leastsq
 endfunction
+//////
+disp('myfun',myfun(tm, tm, ym, wm))
 
  
 
@@ -32,6 +42,4 @@ endfunction
 
 
 
- //////////
-disp('yth',yth(0, x0))
-disp('myfun',myfun(x0, tm, ym, wm))
+
