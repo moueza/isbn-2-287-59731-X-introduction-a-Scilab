@@ -40,7 +40,7 @@ disp('errorfun',errorfun(Coeff0, tm, ym, wm))
 // now we could call leastsq:
 
 // 1- the simplest call
-[f,xopt, gopt] = leastsq(list(errorfun,tm,ym,wm),Coeff0)
+[f,xopt, gopt] = leastsq(list(errorfun,tm,ym,wm),Coeff0)//error
 
 
 
