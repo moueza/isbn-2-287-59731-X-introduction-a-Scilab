@@ -1,5 +1,10 @@
 //FORCE : normal balistic ; EFFECT : spin
-//Unit : meter, h
+//Unit : meter, h, g
+// 56 et 59,4 grams... 57.7
+// -L  <--   -->+L y
+//   ^ +l
+//   V -l
+//where is hit the ball on the ball is reflected on the spin effect
 g=9.8 //9.8/s*s TODO
 clear
 clc
@@ -23,13 +28,15 @@ curve.foreground = color("magenta");
 
 
 //Chapter 2 FORCE
-force3D.from = []
-force3D.from = []
+//TODO  ballistic starting vector vs Speed ?
+force3D.from = [0 -8 2]
+force3D.to = [0 -7 3 ]
 speed=100000  //m/h
-//z2= m*v2*v2-m*g*z2
-z2=2
+
 x2=[-1 -1 1 1 -1]
 y2=[-1 1 1 -1 -1]
+//z2= m*v2*v2-m*g*z2
+z2=2
 z2=[0 0 0 0 1]+1
 
  
@@ -40,7 +47,7 @@ curve2.mark_foreground = color("green");
 curve2.foreground = color("green");
 
 
-//Chapter 3 EFFECT
+//Chapter 3 EFFECT with coeff (bounce<- ground surface)
 //TODO  without vs with effect
 
 
