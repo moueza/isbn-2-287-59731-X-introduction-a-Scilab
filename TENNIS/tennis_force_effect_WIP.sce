@@ -5,12 +5,13 @@
 //   ^ +l
 //   V -l
 //where is hit the ball on the ball is reflected on the spin effect
-g=9.8 //9.8/s*s TODO
-clear
+
+clear//variables
 clc
 close
 clf
 
+g=9.8 //9.8/s*s TODO
 //Chapter 1 polyline 1 GROUND
 x=[-1 -1 1 1 -1]
 y=[-1 1 1 -1 -1]
@@ -29,9 +30,36 @@ curve.foreground = color("magenta");
 
 //Chapter 2 FORCE
 //TODO  ballistic starting vector vs Speed ?
-force3D.from = [0 -8 2]
+force3D.from = [0 -8 2]// at 2m height
 force3D.to = [0 -7 3 ]
-speed=100000  //m/h
+speed.tangent=100000  //km/h -> 1000*speed.tangent/3600 m/s
+direction.vector=force3D.to - force3D.from
+speed.vector=direction.vector/norm(direction.vector)
+speed.vertical=speed.vector(3)
+
+function z=ballistic1D_vectorized(t,z0,v0,g)
+   //Scilab blue book p142
+   z  =-.5*g*t.*t+v0.*t+z0//vectorized
+endfunction
+disp("ballistic",ballistic1D_vectorized(1,force3D.from(3),speed.vertical,g))
+
+
+function [x,y,z]=ballistic3D_vectorized(t,z0,v0,g)
+   //Scilab blue book p142
+   //this type of function p150
+   x=1.1
+   y=2.222
+   z  =3.3333//vectorized
+endfunction
+[x,y,z]=ballistic3D_vectorized(1,force3D.from(3),speed.vertical,g)
+disp("ballistic3D",y)
+V=[x,y,z]
+disp("ballistic3D V",V)
+
+//disp("ballistic3D",ballistic3D_vectorized(1,force3D.from(3),speed.vertical,g)(3))
+
+//V=ballistic3D_vectorized(1,force3D.from(3),speed.vertical,g)
+//disp(V)
 
 x2=[-1 -1 1 1 -1]
 y2=[-1 1 1 -1 -1]
