@@ -87,6 +87,7 @@ curve2.foreground = color("green");
 
 
 //Chapter 3 EFFECT with coeff (bounce<- ground surface)
+//TODO : line color depending of height, arrows
 //TODO  without vs with effect
 
 
