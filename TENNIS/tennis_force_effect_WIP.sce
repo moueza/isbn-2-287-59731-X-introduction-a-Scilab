@@ -13,12 +13,16 @@ clf
 
 g=9.8 //9.8/s*s TODO
 //Chapter 1 polyline 1 GROUND
-x=[-1 -1 1 1 -1]
-y=[-1 1 1 -1 -1]
-z=[0 0 0 0 0]
+SW=[-10,-10]
+NE=[10 10]
+
+//x=[-1 -1 1 1 -1]
+x1=[SW(1) SW(1) NE(1) NE(1) SW(1)] //SouthWest
+y1=[SW(2) NE(2) NE(2) SW(2) SW(2)]
+z1=x1*0
 
 //curve = param3d(r.*sin(t), r.*cos(t), t/10, 30, 72,"X@Y@Z",[4,4])
-curve =param3d(x,y,z)
+curve =param3d(x1,y1,z1)
 curve.mark_mode = "on";
 curve.mark_style = 10;
 curve.mark_foreground = color("magenta");
@@ -53,9 +57,16 @@ function [x,y,z]=ballistic3D_vectorized(t,M0,V0,g)
 endfunction
 [x,y,z]=ballistic3D_vectorized(1,force3D.from,speed.vector,g)
 disp("ballistic3D",y)
-V=[x,y,z];
-disp("ballistic3D V",V)
+M=[x,y,z];
+disp("ballistic3D M",M)
 
+t=0:.1:1
+disp("t=",t)
+[x,y,z]=ballistic3D_vectorized(t,force3D.from,speed.vector,g)
+M2=[x;
+y;
+z];
+disp("ballistic3D M2 multiple t",M2)
 //disp("ballistic3D",ballistic3D_vectorized(1,force3D.from(3),speed.vertical,g)(3))
 
 //V=ballistic3D_vectorized(1,force3D.from(3),speed.vertical,g)
@@ -68,7 +79,7 @@ z2=2
 z2=[0 0 0 0 1]+1
 
  
-curve2 =param3d(x2,y2,z2)
+curve2 =param3d(M2(1,:),M2(2,:),M2(3,:))
 curve2.mark_mode = "on";
 curve2.mark_style = 10;
 curve2.mark_foreground = color("green");
