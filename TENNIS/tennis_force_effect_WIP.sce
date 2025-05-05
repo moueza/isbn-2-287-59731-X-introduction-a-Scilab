@@ -44,16 +44,16 @@ endfunction
 disp("ballistic",ballistic1D_vectorized(1,force3D.from(3),speed.vertical,g))
 
 
-function [x,y,z]=ballistic3D_vectorized(t,z0,v0,g)
+function [x,y,z]=ballistic3D_vectorized(t,M0,V0,g)
    //Scilab blue book p142
    //this type of function p150
-   x=1.1
-   y=2.222
-   z  =3.3333//vectorized
+   x=M0(1)+V0(1).*t
+   y=M0(2)+V0(2).*t
+   z  =-.5*g*t.*t+V0(3).*t+M0(3)//vectorized
 endfunction
-[x,y,z]=ballistic3D_vectorized(1,force3D.from(3),speed.vertical,g)
+[x,y,z]=ballistic3D_vectorized(1,force3D.from,speed.vector,g)
 disp("ballistic3D",y)
-V=[x,y,z]
+V=[x,y,z];
 disp("ballistic3D V",V)
 
 //disp("ballistic3D",ballistic3D_vectorized(1,force3D.from(3),speed.vertical,g)(3))
