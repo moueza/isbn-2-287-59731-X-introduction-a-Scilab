@@ -72,11 +72,6 @@ disp("ballistic3D M2 multiple t",M2)
 //V=ballistic3D_vectorized(1,force3D.from(3),speed.vertical,g)
 //disp(V)
 
-x2=[-1 -1 1 1 -1]
-y2=[-1 1 1 -1 -1]
-//z2= m*v2*v2-m*g*z2
-z2=2
-z2=[0 0 0 0 1]+1
 
  
 curve2 =param3d(M2(1,:),M2(2,:),M2(3,:))
@@ -88,7 +83,7 @@ curve2.foreground = color("green");
 
 //Chapter 3 EFFECT with coeff (bounce<- ground surface)
 //TODO : line color depending of height, arrows
-//TODO  without vs with effect
+//TODO  without vs with effect in bounce
 
 
 //TODO Reflection by Xcos
