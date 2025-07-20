@@ -119,7 +119,7 @@ disp("Image rectangle_rgb.png créée dans le dossier courant");
 //color norm ... RGB
 x=[0 1 2]
 y=[0 1 5]
-n=size(x)(2)
+sizee=size(x)(2)
 //z=[0 1 10]
 //x1=x(1:2)
 //x2=x(2:$)
@@ -137,7 +137,7 @@ n=size(x)(2)
 intervLargeur=780-380
 nmFrom=380
 //normsVec=0:.0999:1 //380-780 
-normsVec=linspace(0,1,n) //n values
+normsVec=linspace(0,1,sizee) //n values
 
 normm2nm60percents=nmFrom+.6*intervLargeur
 disp("normm2nm60percents=",normm2nm60percents)
@@ -153,7 +153,6 @@ disp("normm3nmVec=",normm3nmVec)
 
 nm2RGBVec=[]
 RGBs=[]
-sizee=size(normm3nmVec)(2)
 for indexx=1:(sizee-1)
     disp("indexx=",indexx)
     nm2RGBVec(1,$+1)=normm3nmVec(indexx)//++++ add line
