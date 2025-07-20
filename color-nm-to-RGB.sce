@@ -119,11 +119,12 @@ disp("Image rectangle_rgb.png créée dans le dossier courant");
 //color norm ... RGB
 x=[0 1 2]
 y=[0 1 5]
-z=[0 1 10]
-x1=x(1:2)
-x2=x(2:$)
-y1=y(1:2)
-y2=y(2:$)
+n=size(x)(2)
+//z=[0 1 10]
+//x1=x(1:2)
+//x2=x(2:$)
+//y1=y(1:2)
+//y2=y(2:$)
 
 //plot2d(x,y,z)
 //plot2d(x,y,style=addcolor([1 0 0]))//p86
@@ -132,14 +133,12 @@ y2=y(2:$)
 //plot2d(x1,y1,style=addcolor([1 0 0]))
 //plot2d(x2,y2,style=addcolor([0  1 0]))
 
-for normm=0:.1:1
-    disp("normm=",normm)
-    
-end
 
 intervLargeur=780-380
 nmFrom=380
-normm2Vec=0:.0999:1 //380-780 
+//normsVec=0:.0999:1 //380-780 
+normsVec=linspace(0,1,n) //n values
+
 normm2nm60percents=nmFrom+.6*intervLargeur
 disp("normm2nm60percents=",normm2nm60percents)
 
@@ -147,23 +146,24 @@ normm2nm100percents=nmFrom+1.*intervLargeur
 disp("normm2nm100percents=",normm2nm100percents)
 
 
-normm2nmVec=nmFrom+ normm2Vec * intervLargeur
-disp("normm2nmVec=",normm2nmVec)
+normm3nmVec=nmFrom+ normsVec * intervLargeur
+disp("normm3nmVec=",normm3nmVec)
 
 
 
 nm2RGBVec=[]
 RGBs=[]
-for vall=1:size(normm2nmVec)(2)
-    disp("vall=",vall)
-    nm2RGBVec(1,$+1)=normm2nmVec(vall)//++++ add line
-    [R,G,B]=colorr(normm2nmVec(vall))
+sizee=size(normm3nmVec)(2)
+for indexx=1:(sizee-1)
+    disp("indexx=",indexx)
+    nm2RGBVec(1,$+1)=normm3nmVec(indexx)//++++ add line
+    [R,G,B]=colorr(normm3nmVec(indexx))
     M=[R,G,B]
-    RGBs(vall,1:3)=M//no  RGBs(1,vall)=M
+    RGBs(indexx,1:3)=M//no  RGBs(1,indexx)=M
     disp("nm2RGBVec=",nm2RGBVec)
-    //plot2d(x(vall),y(vall),style=addcolor(RGBs(vall,:)/255))
-    //plot2d([x(vall),x(vall+1)],[y(vall),y(vall+1)],style=addcolor([1 0 0]))//OK
-    plot2d([x(vall),x(vall+1)],[y(vall),y(vall+1)],style=addcolor(RGBs(vall,:)/255))
+    //plot2d(x(indexx),y(indexx),style=addcolor(RGBs(indexx,:)/255))
+    //plot2d([x(indexx),x(indexx+1)],[y(indexx),y(indexx+1)],style=addcolor([1 0 0]))//OK
+    plot2d([x(indexx),x(indexx+1)],[y(indexx),y(indexx+1)],style=addcolor(RGBs(indexx,:)/255))
 end    
 disp("nm2RGBVec",nm2RGBVec)
 disp("RGBs=",RGBs)
