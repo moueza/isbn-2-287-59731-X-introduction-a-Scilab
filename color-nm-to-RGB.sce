@@ -136,9 +136,9 @@ sizee=size(x)(2)
 
 intervLargeur=780-380
 nmFrom=380
-//normsVec=0:.0999:1 //380-780 
-normsVec=linspace(0,1,sizee) //n values
-
+//normsNMvec=0:.0999:1 //380-780 
+//normsNMvec=linspace(0,1,sizee) //n values
+normsENERGYvec=linspace(1,01,sizee) //n values
 normm2nm60percents=nmFrom+.6*intervLargeur
 disp("normm2nm60percents=",normm2nm60percents)
 
@@ -146,7 +146,7 @@ normm2nm100percents=nmFrom+1.*intervLargeur
 disp("normm2nm100percents=",normm2nm100percents)
 
 
-normm3nmVec=nmFrom+ normsVec * intervLargeur
+normm3nmVec=nmFrom+ normsENERGYvec  * intervLargeur
 disp("normm3nmVec=",normm3nmVec)
 
 
@@ -166,5 +166,5 @@ for indexx=1:(sizee-1)
 end    
 disp("nm2RGBVec",nm2RGBVec)
 disp("RGBs=",RGBs)
-
-
+//Why no red at start ? Trace RGB = 77 0 77 which is not 77 0 0 ... BECAUSE WE START FROM MIN OF NM = MAX OF ENERGY, NOT MIN OF ENERGY ... cf [R, G, B]= colorr(780) -> R=77 G=0 B=0 CQFD
+//Why finish is yellow and not purple ? Because 2nd line is for dots 2 of 3 ~ middle of range ~ yallow

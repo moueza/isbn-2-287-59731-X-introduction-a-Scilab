@@ -1,5 +1,6 @@
 clc
-clffunction [R, G, B] = color(nm)
+//clf
+function [R, G, B] = color(nm)
     if nm >= 380 & nm < 440 then
         R = (440 - nm) / (440 - 380);
         G = 0;
@@ -54,5 +55,5 @@ endfunction
 
 
 
-[R, G, B] = color(500)
+[R, G, B] = color(400)
 disp(R, G, B)
