@@ -57,3 +57,9 @@ endfunction
 
 [R, G, B] = color(400)
 disp(R, G, B)
+
+segments_param3D_xyzRGB255ofFrom=[[0 0 0 255 0 0];[1 1 1  0 255 0];[3 3 3 0 0 255]]
+disp("segments_param3D_xyzRGB255ofFrom : ",segments_param3D_xyzRGB255ofFrom)
+disp("coord3d : ",coord3d)
+coord3d=segments_param3D_xyzRGB255ofFrom(:,1:3)
+param3d(coord3d(:,1),coord3d(:,2),coord3d(:,3))
