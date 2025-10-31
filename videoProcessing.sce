@@ -23,7 +23,9 @@ function [StillImage]=still_image(VIDEO,repeatsConsecutiveForStill)
     //Scilab blue book p142
     //this type of function p150
     //StillImage=[[1 2 3];[4 5 6]]
-    depthSize=size(VIDEO)(1,3)//3rd dim
+    sizee=size(VIDEO)
+    depthSize=sizee(1,3)//3rd dim
+    StillImage=zeros(sizee(1,1),sizee(1,2))
     row=1
     while(row<=2);  
         col=1  
@@ -37,7 +39,9 @@ function [StillImage]=still_image(VIDEO,repeatsConsecutiveForStill)
                 disp("depthSize vector :",VIDEO(row,col,1:depthSize));
                 while(depth<=depthSize); 
                     if found==VIDEO(row,col,depth)then
-                        if ( repeats==repeatsConsecutiveForStill )then
+                        if (repeats==repeatsConsecutiveForStill)then
+                            disp("row,col: ",row,col)    
+                            disp("found2 BEFORE: ",found)                          
                             StillImage(row,col)=found
                             disp("found2 : ",found)
                             disp("StillImage2 : ",StillImage)
