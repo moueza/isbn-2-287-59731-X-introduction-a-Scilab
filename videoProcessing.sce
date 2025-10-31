@@ -40,22 +40,15 @@ function [StillImage]=still_image(VIDEO,repeatsConsecutiveForStill)
                 while(depth<=depthSize); 
                     if found==VIDEO(row,col,depth)then
                         if (repeats==repeatsConsecutiveForStill)then
-                            disp("row,col: ",row,col)    
-                            disp("found2 BEFORE: ",found)                          
                             StillImage(row,col)=found
-                            disp("found2 : ",found)
-                            disp("StillImage2 : ",StillImage)
                             depth=depthSize;//endloop because reached
                         else
                         end
                         repeats=repeats+1;
                     else
                         found=VIDEO(row,col,depth)
-                        disp("found3 : ",found)
-                        //disp("StillImage3 : ",StillImage)
                         repeats=0
                     end
-
                     depth=depth+1;
                 end
             end
