@@ -1,1 +1,1 @@
-test_run
+status = test_run()
