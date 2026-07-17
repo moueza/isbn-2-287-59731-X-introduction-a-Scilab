@@ -4,7 +4,7 @@ t=[0.0,.8,1,2] ;dimm=size(t)(2);
 
 t20=[0.0,.8,1,1.5,2] ;dimm2=size(t)(2);
 ;
-
+//I)
 
 //t,y ... resample from into t20 :
 M=[t;
@@ -40,13 +40,13 @@ disp("ts_timeseries : ",ts_timeseries)
 ts2_duration=timeseries(seconds(t)',f','VariableNames',["Time","y"]);//++++
 disp("ts2_duration",ts2_duration)
 
-//RESAMPLING...
+//II) RESAMPLING...
 
 ts20out = retime(ts2_duration, seconds(t20)','linear')
 disp("ts20out : ",ts20out)
 
 
-//SYNC 2 TTIMESERIES...
+//III) SYNC 2 TTIMESERIES...diff
 t30 =[1.5,2.5] ;dimm30=size(t)(2);
 f30= [100,200]
 ts30_duration=timeseries(seconds(t30)',f30','VariableNames',["Time","y"]);//++++
@@ -55,3 +55,10 @@ disp("ts30_duration",ts30_duration)
 
 ts40_sync=synchronize(ts2_duration,ts30_duration,"union","linear")
 disp("ts40_sync",ts40_sync)
+
+
+//IV) SYNC 2 TTIMESERIES OF SAME VAR
+clc;disp("ts2_duration:",ts2_duration);disp("ts30_duration:",ts30_duration)
+ts41_duration=[ts2_duration;ts30_duration];disp("ts41_duration:",ts41_duration)
+ts42_duration_sorted=sortrows(ts41_duration,1);//or gsort
+disp("ts42_duration:",ts42_duration_sorted)
