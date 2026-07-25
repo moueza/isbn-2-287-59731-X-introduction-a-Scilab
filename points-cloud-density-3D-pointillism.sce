@@ -36,6 +36,11 @@ endfunction
 scattering3Dpointscloud(Points)
 
 //density distribution
-Points3=scaterring3DnormalDistribution(average,stdDev)
+function [Points]=scaterring3DnormalDistribution(averagee,stdDevv)
+ 
+   
+endfunction  
+averagee1=100; stdDevv1=15
+Points3=scaterring3DnormalDistribution(averagee1,stdDevv1)
 
 //orbitals
