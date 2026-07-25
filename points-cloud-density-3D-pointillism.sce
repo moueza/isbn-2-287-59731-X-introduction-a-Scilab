@@ -9,33 +9,7 @@ Points=[
 [2 1 4]
 ]
 
-Points2=Points
-Points2(:,1)=Points(:,1)+.01
-disp("Points : ",Points)
-
-//X=[Points(:,1) Points2(:,1) ]
-X=Points(:,1)  
-
-//Y=[Points(:,2) Points2(:,2) ]
-Y=Points(:,2)  
-
-//Z=[Points(:,3) Points2(:,3) ]
-Z=Points(:,3) 
-
-//param3d(X,Y,Z)
-
-X=Points2(:,1)  
-
-//Y=[Points(:,2) Points2(:,2) ]
-Y=Points2(:,2)  
-
-//Z=[Points(:,3) Points2(:,3) ]
-Z=Points2(:,3) 
-
-//param3d(X,Y,Z)
-
-
-
+  
 
 
 dimm=size(Points)
