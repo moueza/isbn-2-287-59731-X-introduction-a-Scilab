@@ -32,15 +32,26 @@ function scattering3Dpointscloud(Points)
         curv.mark_background = color("magenta");
     end
 endfunction  
-
 scattering3Dpointscloud(Points)
 
-//density distribution
-function [Points]=scaterring3DnormalDistribution(averagee,stdDevv)
+
+
+
+//DENSITY DISTRIBUTIONING
+function [Points]=scaterring3DnormalDistributioning(averagee,stdDevv)
  
    
 endfunction  
-averagee1=100; stdDevv1=15
-Points3=scaterring3DnormalDistribution(averagee1,stdDevv1)
+averagee2=100; stdDevv2=15
+Points3=scaterring3DnormalDistributioning(averagee2,stdDevv2)
 
-//orbitals
+
+
+
+
+
+//ORBITALS
+
+
+
+
