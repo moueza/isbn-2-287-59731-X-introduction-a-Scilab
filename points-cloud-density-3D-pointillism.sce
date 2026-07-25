@@ -56,5 +56,6 @@ for i=1:dimm(1)
     curv.mark_style = 9// bullet
     //p.mark_size = 4
     curv.mark_size = 4
-
+    curv.mark_foreground = color("magenta");
+    curv.mark_background = color("magenta");
 end
