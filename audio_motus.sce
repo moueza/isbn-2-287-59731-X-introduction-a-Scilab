@@ -25,7 +25,17 @@ note4 = sin(2*%pi*C2*t).*env;
 silence = zeros(1, fs*0.05);
 
 // mélodie
-motus = [note1 silence note2 silence note3 silence note4];
+motusRecto = [note1 silence note2 silence note3 silence note4 silence];
 
 // lecture
-playsnd(motus', fs);
+//playsnd(motusRecto', fs);
+
+motusVerso = motusRecto($:-1:1);
+//playsnd(motusVerso', fs);
+
+
+motusMerged=[motusRecto motusVerso ]
+playsnd(motusMerged', fs);
+
+
+//TODO pure synth square waves
